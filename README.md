@@ -63,7 +63,12 @@ To allow users to check the strength of their own passwords, we use the `input()
 
 ```python
 password = input("Enter a password: ")
-print(calculate_strength(password))
+strength, feedback = calculate_strength(password)
+print("Password strength: ", strength)
+if feedback:
+    print("Here are some ways you could improve your password:")
+    for suggestion in feedback:
+        print("- ", suggestion)
 ```
 
 This will prompt the user to enter a password, then print out its strength rating.
